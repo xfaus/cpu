@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+   <head>
+      <title>Simulador de um Computador</title>
+      <link rel="stylesheet" href="css/bootstrap.css">
+      <link rel="stylesheet" href="css/bootstrap-theme.css">
+      <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+      <script type="text/javascript" src="js/bootstrap.js"></script>
+      <script type="text/javascript" src="js/svg.js"></script>
+      <style type="text/css">
+         html, body {
+         height: 100%;
+         margin: 0px;
+         }
+         #editor {
+         margin: 0;
+         position: absolute;
+         top: 0;
+         bottom: 0;
+         left: 0;
+         right: 0;
+         }
+      </style>
+   </head>
+   <body style="background-color: #424242;">
+      <div class="container-fluid" style="height: 99.9%;" >
+         <div class="row" style="height: 100%;">
+            <div class="col-md-5" style="height: 100%;">
+               <div class="row" style="height: 100%;">
+                  <div class="col-md-12" style="height: 100%;">
+                     <pre id="editor">
+str [60], 10
+str [61], 15
+str [62], 5
+mov ra, [60]
+add ra, [61]
+jmp 9
+jmp 10
+sub rb, ra
+hlt
+mov rb, [62]
+add rb, ra</pre>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-7" style="margin-top: 0%;">
+               <div class="row">
+                  <div class="col-md-12">
+                     <svg version="1.1" id="cpu" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="680px" height="511.896px" viewBox="0 0 680 511.896" enable-background="new 0 0 680 511.896" xml:space="preserve">
+<text transform="matrix(1 0 0 1 43.0647 489.1379)" fill="#FFFFFF" font-family="'MyriadPro-Regular'" font-size="18.4368">MEMÓRIA</text>
+<text transform="matrix(1 0 0 1 337.5562 125.7845)" fill="#FFFFFF" font-family="'MyriadPro-Regular'" font-size="18.4368">IR</text>
+<rect id="rg-ir" x="359.989" y="103.916" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="112.364" height="32.52"/>
+<rect id="rg-mbr" x="489.52" y="103.916" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="112.364" height="32.52"/>
+<rect id="rg-pc" x="360.351" y="152.843" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="112.925" height="32.52"/>
+<rect id="rg-pc_1_" x="138.69" y="473.448" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="135.31" height="20"/>
+<rect id="rg-mar" x="488.959" y="152.843" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="112.925" height="32.52"/>
+<text transform="matrix(1 0 0 1 608.8485 125.7845)" fill="#FFFFFF" font-family="'MyriadPro-Regular'" font-size="18.4368">MBR</text>
+<text transform="matrix(1 0 0 1 608.8485 176.8792)" fill="#FFFFFF" font-family="'MyriadPro-Regular'" font-size="18.4368">MAR</text>
+<text transform="matrix(1 0 0 1 334.3037 176.8792)" fill="#FFFFFF" font-family="'MyriadPro-Regular'" font-size="18.4368">PC</text>
+<rect id="rg-ra" x="360.46" y="347.965" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="112.925" height="32.52"/>
+<rect id="rg-rb" x="489.069" y="347.965" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="112.925" height="32.52"/>
+<text transform="matrix(1 0 0 1 608.958 372.0017)" fill="#FFFFFF" font-family="'MyriadPro-Regular'" font-size="18.4368">RB</text>
+<text transform="matrix(1 0 0 1 332.2451 372.0017)" fill="#FFFFFF" font-family="'MyriadPro-Regular'" font-size="18.4368">RA</text>
+<rect id="decodificador" x="359.468" y="199.455" fill="#0071BC" width="242.416" height="46.613"/>
+<rect id="un-execucao" x="359.468" y="260.16" fill="#0071BC" width="242.416" height="73.713"/>
+<text transform="matrix(1 0 0 1 409.7852 228.9119)" fill="#F2F2F2" font-family="'MyriadPro-Regular'" font-size="18.4368">DECODIFICADOR</text>
+<text transform="matrix(1 0 0 1 417.373 301.1794)" fill="#F2F2F2" font-family="'MyriadPro-Regular'" font-size="18.4368">UN. EXECUÇÃO</text>
+<polygon id="ula" fill="#0071BC" points="568,446.49 496.412,501.895 464.215,501.895 393.353,446.49 393.353,400.721 
+	467.628,400.721 479.872,411.561 492.119,400.721 568,400.721 "/>
+<text transform="matrix(1 0 0 1 459.6494 450.4118)" fill="#F2F2F2" font-family="'MyriadPro-Regular'" font-size="24.5824">ULA</text>
+<rect id="memoria" x="44.553" y="103.916" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" width="229.088" height="358.955"/>
+<rect id="mem_0_" x="52.864" y="115.986" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_1_" x="52.864" y="137.667" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_2_" x="52.864" y="159.347" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_3_" x="52.864" y="181.027" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_4_" x="52.864" y="202.707" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_5_" x="52.864" y="224.388" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_6_" x="52.864" y="246.068" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_7_" x="52.864" y="267.748" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_8_" x="52.864" y="289.429" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_9_" x="52.864" y="311.109" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_10_" x="52.864" y="332.789" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_11_" x="52.864" y="354.469" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_12_" x="52.864" y="376.15" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_13_" x="52.864" y="397.83" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_14_" x="52.864" y="419.51" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_15_" x="52.864" y="441.191" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_16_" x="107.065" y="115.986" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_17_" x="107.065" y="137.667" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_18_" x="107.065" y="159.347" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_19_" x="107.065" y="181.027" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_20_" x="107.065" y="202.707" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_21_" x="107.065" y="224.388" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_22_" x="107.065" y="246.068" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_23_" x="107.065" y="267.748" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_24_" x="107.065" y="289.429" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_25_" x="107.065" y="311.109" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_26_" x="107.065" y="332.789" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_27_" x="107.065" y="354.469" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_28_" x="107.065" y="376.15" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_29_" x="107.065" y="397.83" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_30_" x="107.065" y="419.51" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_31_" x="107.065" y="441.191" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_32_" x="161.265" y="115.986" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_33_" x="161.265" y="137.667" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_34_" x="161.265" y="159.347" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_35_" x="161.265" y="181.027" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_36_" x="161.265" y="202.707" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_37_" x="161.265" y="224.388" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_38_" x="161.265" y="246.068" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_39_" x="161.265" y="267.748" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_40_" x="161.265" y="289.429" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_41_" x="161.265" y="311.109" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_42_" x="161.265" y="332.789" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_43_" x="161.265" y="354.469" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_44_" x="161.265" y="376.15" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_45_" x="161.265" y="397.83" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_46_" x="161.265" y="419.51" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_47_" x="161.265" y="441.191" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_48_" x="215.466" y="115.986" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_49_" x="215.466" y="137.667" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_50_" x="215.466" y="159.347" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_51_" x="215.466" y="181.027" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_52_" x="215.466" y="202.707" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_53_" x="215.466" y="224.388" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_54_" x="215.466" y="246.068" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_55_" x="215.466" y="267.748" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_56_" x="215.466" y="289.429" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_57_" x="215.466" y="311.109" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_58_" x="215.466" y="332.789" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_59_" x="215.466" y="354.469" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_60_" x="215.466" y="376.15" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_61_" x="215.466" y="397.83" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_62_" x="215.466" y="419.51" fill="#B3B3B3" width="49.503" height="10.84"/>
+<rect id="mem_63_" x="215.466" y="441.191" fill="#B3B3B3" width="49.503" height="10.84"/>
+<text id="text-ir" transform="matrix(1 0 0 1 367.8087 125.1506)" font-family="'MyriadPro-Regular'" font-size="17.0079">0</text>
+<text id="text-mbr" transform="matrix(1 0 0 1 496.8087 125.1506)" font-family="'MyriadPro-Regular'" font-size="17.0079">0</text>
+<text id="text-mar" transform="matrix(1 0 0 1 494.8087 174.1506)" font-family="'MyriadPro-Regular'" font-size="17.0079">0</text>
+<text id="text-pc" transform="matrix(1 0 0 1 367.8087 174.1506)" font-family="'MyriadPro-Regular'" font-size="17.0079">0</text>
+<text id="text-ra" transform="matrix(1 0 0 1 366.8087 369.1506)" font-family="'MyriadPro-Regular'" font-size="17.0079">0</text>
+<text id="text-rb" transform="matrix(1 0 0 1 494.8087 369.1506)" font-family="'MyriadPro-Regular'" font-size="17.0079">0</text>
+<g>
+	<g>
+		
+			<line fill="none" stroke="#000000" stroke-width="1.0006" stroke-miterlimit="10" x1="417.373" y1="380.485" x2="417.373" y2="396.07"/>
+		<g>
+			<polygon points="412.384,394.61 417.372,403.25 422.362,394.61 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		
+			<line fill="none" stroke="#000000" stroke-width="1.0006" stroke-miterlimit="10" x1="545.422" y1="380.485" x2="545.422" y2="396.07"/>
+		<g>
+			<polygon points="540.432,394.61 545.421,403.25 550.411,394.61 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		
+			<line fill="none" stroke="#000000" stroke-width="1.0006" stroke-miterlimit="10" x1="417.373" y1="333.873" x2="417.373" y2="341.07"/>
+		<g>
+			<polygon points="412.384,339.61 417.372,348.25 422.362,339.61 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		
+			<line fill="none" stroke="#000000" stroke-width="1.0006" stroke-miterlimit="10" x1="545.422" y1="333.873" x2="545.422" y2="341.07"/>
+		<g>
+			<polygon points="540.432,339.61 545.421,348.25 550.41,339.61 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		
+			<line fill="none" stroke="#000000" stroke-width="1.0006" stroke-miterlimit="10" x1="480.676" y1="246.299" x2="480.676" y2="253.496"/>
+		<g>
+			<polygon points="475.687,252.036 480.676,260.676 485.665,252.036 			"/>
+		</g>
+	</g>
+</g>
+<text id="display-mem" transform="matrix(1 0 0 1 144.7681 489.1379)" font-family="'MyriadPro-Regular'" font-size="17.0079">0</text>
+<path id="est-stop" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" d="M601.884,51.948c0,8.56-6.94,15.5-15.5,15.5H525
+	c-8.56,0-15.5-6.94-15.5-15.5l0,0c0-8.56,6.94-15.5,15.5-15.5h61.384C594.944,36.448,601.884,43.388,601.884,51.948L601.884,51.948z
+	"/>
+<path id="est-busca" fill="#FFFFFF" stroke="#000000" stroke-miterlimit="10" d="M502.169,51.948c0,8.56-6.94,15.5-15.5,15.5
+	h-61.384c-8.56,0-15.5-6.94-15.5-15.5l0,0c0-8.56,6.94-15.5,15.5-15.5h61.384C495.23,36.448,502.169,43.388,502.169,51.948
+	L502.169,51.948z"/>
+<text id="text-ir_1_" transform="matrix(1 0 0 1 428.4753 57.8173)" font-family="'MyriadPro-Regular'" font-size="17.0079">BUSCA</text>
+<text id="text-ir_2_" transform="matrix(1 0 0 1 536.142 57.8174)" font-family="'MyriadPro-Regular'" font-size="17.0079">STOP</text>
+</svg>
+
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-4 col-md-offset-2" style="margin-top: 5%;">
+                     <button type="button" id="executar" class="btn btn-primary btn-lg btn-block">Executar</button>
+                  </div>
+                  <div class="col-md-4" style="margin-top: 5%;">
+                     <button type="button" id="reset" class="btn btn-primary btn-lg btn-block">Reset</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- /.container -->
+      <script type="text/javascript" src="js/cpu.js"></script>
+      <!-- load ace -->
+      <script src="js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+	  <script type="text/javascript" src="js/animacao.js"></script>
+      <script>
+         $(document).ready(function() {
+         
+            $('#executar').click(function(){
+			Compilador.init();
+			var error = Compilador.getError();
+			if (!error.erro) {
+					 return CPU.init();
+				 }
+			});
+         
+			$('#reset').click(function(){
+			   CPU.reset();
+			});
+         });
+         
+         var editor = ace.edit("editor");
+         editor.setTheme("ace/theme/twilight");
+         editor.session.setMode("ace/mode/assembly_x86");
+      </script>
+   </body>
+</html>
